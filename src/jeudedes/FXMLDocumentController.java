@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import testdes.AdultePlayer;
 import testdes.EnfantPlayer;
+import testdes.FactoryJeu;
 import testdes.Jeu;
 import testdes.JeuDecorator;
 import testdes.JeuDecoratorAffichage;
@@ -32,26 +33,25 @@ public class FXMLDocumentController implements Initializable, Observer{
     @FXML
     private Label label;
     Jeu j1;
-    //Jeu j2;
+
     
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
         j1.jouer();
-        //j2.jouer();
+        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
-        j1 = new Partie421();
-        //j2 = new Partie10Lance();
+        FactoryJeu fj = new FactoryJeu();
         
-        ((Partie421)j1).addObserver(this);
-       // ((Partie10Lance)j2).addObserver(this);
+        j1 = fj.getPartie("421",this);
         
-        //j1
-       
+        
+        
+        
+        System.out.println(j1.getClass());
     }    
 
     @Override
