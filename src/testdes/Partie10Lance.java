@@ -6,18 +6,20 @@
 package testdes;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  *
  * @author Anthony
  */
-public class Partie10Lance implements Jeu {
+public class Partie10Lance extends Observable implements Jeu  {
     
     private ArrayList<Des> lesDes;
     private int somme;
     
     
     public Partie10Lance() {
+        super();
         
         this.somme = 0;
         this.lesDes = new ArrayList<Des>();
@@ -35,11 +37,16 @@ public class Partie10Lance implements Jeu {
             d.roll();
             this.somme +=d.getValue();
         }
+       
+        setChanged();
+        notifyObservers(this.statutPartie());
     }
 
     @Override
     public boolean statutPartie() {
-        if(this.somme == 10 ){
+        
+        
+       if(this.somme == 10 ){
            return true;
        }
        else{
@@ -49,6 +56,10 @@ public class Partie10Lance implements Jeu {
     
     public String toString(){
         return "Score : "+this.somme;
+    }
+    
+    public String getInfosPlus(){
+        return this.getClass()+", Score : "+this.somme+" "+this.lesDes.get(0).getValue();
     }
     
 }

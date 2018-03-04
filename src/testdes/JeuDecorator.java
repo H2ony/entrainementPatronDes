@@ -5,17 +5,14 @@
  */
 package testdes;
 
-import java.util.ArrayList;
 import java.util.Observable;
+import jeudedes.FXMLDocumentController;
 
 /**
  *
  * @author Anthony
  */
-public interface Jeu  {
-    
-    public abstract void jouer();
-    
-    public boolean statutPartie();
-    
+public abstract class JeuDecorator extends Player{
+    protected Player player;
+    public abstract String getInfosPlus();
 }

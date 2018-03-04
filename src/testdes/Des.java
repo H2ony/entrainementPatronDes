@@ -5,6 +5,7 @@
  */
 package testdes;
 
+import java.util.Observable;
 import java.util.Random;
 
 /**

@@ -6,17 +6,21 @@
 package testdes;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  *
  * @author Anthony
  */
-public class Partie421 implements Jeu{
+public class Partie421 extends Observable implements Jeu{
     
     private ArrayList<Des> lesDes;
     private int somme;
     
     public Partie421(){
+        
+        super();
+        
         this.somme = 0;
         this.lesDes = new ArrayList<Des>();
         
@@ -36,6 +40,9 @@ public class Partie421 implements Jeu{
             
             this.somme +=d.getValue();
         }
+        
+        setChanged();
+        notifyObservers(this.statutPartie());
     }
 
     @Override
@@ -51,5 +58,7 @@ public class Partie421 implements Jeu{
     public String toString(){
         return "Score : "+this.somme;
     }
-    
+    public String getInfosPlus(){
+        return this.getClass()+", Score : "+this.somme+" "+this.lesDes.get(0).getValue();
+    }
 }

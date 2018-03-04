@@ -5,17 +5,17 @@
  */
 package testdes;
 
-import java.util.ArrayList;
-import java.util.Observable;
-
 /**
  *
  * @author Anthony
  */
-public interface Jeu  {
+public class AdultePlayer extends Player{
+
+    public AdultePlayer() {
+        super();
+    }
     
-    public abstract void jouer();
-    
-    public boolean statutPartie();
-    
+    public String getInfosPlus(){
+        return "Je suis un adulte";
+    }
 }

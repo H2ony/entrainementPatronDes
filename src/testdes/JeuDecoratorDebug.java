@@ -5,17 +5,21 @@
  */
 package testdes;
 
-import java.util.ArrayList;
-import java.util.Observable;
-
 /**
  *
  * @author Anthony
  */
-public interface Jeu  {
+public class JeuDecoratorDebug extends JeuDecorator {
+
     
-    public abstract void jouer();
-    
-    public boolean statutPartie();
+    public JeuDecoratorDebug(Player p) {
+        player = p;
+    }
+
+    @Override
+    public String getInfosPlus() {
+        return player.getInfosPlus();
+    }
+
     
 }

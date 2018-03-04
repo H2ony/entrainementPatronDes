@@ -5,17 +5,20 @@
  */
 package testdes;
 
-import java.util.ArrayList;
-import java.util.Observable;
-
 /**
  *
  * @author Anthony
  */
-public interface Jeu  {
+public abstract class Player {
+    public int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
     
-    public abstract void jouer();
-    
-    public boolean statutPartie();
-    
+    public abstract String getInfosPlus();
 }
